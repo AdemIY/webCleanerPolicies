@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung - webCleaner (Chrome-Erweiterung)</title>
+  <meta name="description" content="Datenschutzerklärung für die Chrome-Erweiterung webCleaner. Erfahren Sie, wie mit Daten in Ihrem Browser umgegangen wird." />
+
+  <style>
+    :root {
+      --bg-color: #050816;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.15);
+      --card-bg: rgba(15, 23, 42, 0.95);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 25px 45px rgba(15, 23, 42, 0.7);
+      --radius-xl: 18px;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top left, #0ea5e9 0, transparent 55%),
+        radial-gradient(circle at bottom right, #6366f1 0, transparent 55%),
+        var(--bg-color);
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(16px);
+      padding: 28px 22px 24px;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 32px 32px 28px;
+      }
+    }
+
+    header.page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      padding-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: var(--accent-soft);
+      color: #bfdbfe;
+      border: 1px solid rgba(59, 130, 246, 0.7);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25);
+    }
+
+    .title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    nav.page-nav {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+
+    nav.page-nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+    }
+
+    nav.page-nav a:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+      background-color: rgba(15, 23, 42, 0.7);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(75, 85, 99, 0.75);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    section h2 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+    }
+
+    section h3 {
+      margin: 12px 0 4px;
+      font-size: 0.98rem;
+    }
+
+    p {
+      margin: 4px 0 8px;
+      color: var(--text-main);
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin: 4px 0 8px 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .highlight-box {
+      margin-top: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(59, 130, 246, 0.7);
+      font-size: 0.9rem;
+      color: #dbeafe;
+    }
+
+    .legal-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(75, 85, 99, 0.8);
+      padding-top: 10px;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    a {
+      color: #93c5fd;
+    }
+
+    a:hover {
+      color: #bfdbfe;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="card">
+      <header class="page-header">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Datenschutz & Transparenz</span>
+        </div>
+        <div class="title-row">
+          <div>
+            <h1>Datenschutzerklärung - WebCleaner</h1>
+            <p class="subtitle">
+              Diese Seite informiert Sie darüber, wie die Chrome-Erweiterung
+              <strong>„webCleaner“</strong> mit Daten in Ihrem Browser umgeht.
+            </p>
+          </div>
+        </div>
+        <nav class="page-nav">
+          <a href="#scope">Geltungsbereich</a>
+          <a href="#function">Funktionsweise</a>
+          <a href="#data-processing">Verarbeitete Daten</a>
+          <a href="#permissions">Berechtigungen</a>
+          <a href="#rights">Ihre Rechte</a>
+          <a href="#contact">Kontakt</a>
+        </nav>
+      </header>
+
+      <main>
+        <!-- 1. Verantwortlicher -->
+        <section id="controller">
+          <h2>1. Verantwortlicher</h2>
+          <p>
+            Verantwortlich für die Datenverarbeitung im Zusammenhang mit dieser
+            Chrome-Erweiterung ist:
+          </p>
+          <p>
+            <strong><!-- Dein Name hier anpassen -->Adem Yaren</strong><br />
+            <!-- Optional: Adresse eintragen -->
+            <!-- Musterstraße 1, 12345 Musterstadt, Deutschland --><br />
+            E-Mail: <a href="mailto:adem.yaren55@gmail.com">adem.yaren55@gmail.com</a>
+          </p>
+        </section>
+
+        <!-- 2. Geltungsbereich -->
+        <section id="scope">
+          <h2>2. Geltungsbereich dieser Datenschutzerklärung</h2>
+          <p>
+            Diese Datenschutzerklärung gilt ausschließlich für die Nutzung der
+            Browser-Erweiterung <strong>„webCleaner“</strong> in
+            Chrome-kompatiblen Browsern (z.&nbsp;B. Google Chrome, Microsoft Edge,
+            Brave, Opera), nicht jedoch für die von Ihnen besuchten Webseiten
+            selbst.
+          </p>
+          <p class="muted">
+            Hinweis: Jede Webseite, die Sie besuchen, hat ihre eigene
+            Datenschutzerklärung, die unabhängig von dieser Erweiterung gilt.
+          </p>
+        </section>
+
+        <!-- 3. Funktionsweise -->
+        <section id="function">
+          <h2>3. Funktionsweise der Erweiterung</h2>
+          <p>
+            Die Erweiterung <strong>„webCleaner“</strong> ermöglicht es Ihnen,
+            bestimmte Elemente auf gerade geöffneten Webseiten zu markieren,
+            auszublenden oder zu entfernen. Dazu werden Skripte im Kontext der
+            aktuell angezeigten Seite ausgeführt und mit dem dortigen
+            Seiteninhalt (DOM) gearbeitet.
+          </p>
+          <div class="highlight-box">
+            Kurz gesagt: Die Erweiterung „schaut“ auf die aktuell geöffnete
+            Seite, bearbeitet deren Struktur nach Ihren Aktionen und verlässt
+            sich vollständig auf den lokalen Browser - ohne einen eigenen
+            Server im Hintergrund.
+          </div>
+        </section>
+
+        <!-- 4. Verarbeitete Daten -->
+        <section id="data-processing">
+          <h2>4. Art und Zweck der verarbeiteten Daten</h2>
+          <p>
+            Um die beschriebenen Funktionen bereitzustellen, verarbeitet die
+            Erweiterung technisch bedingt insbesondere:
+          </p>
+          <ul>
+            <li>Inhalte und Struktur der aktuell aufgerufenen Webseite (HTML/DOM)</li>
+            <li>Informationen darüber, welche Elemente Sie auswählen oder entfernen</li>
+            <li>die URL der aktiven Browser-Registerkarte (Tab)</li>
+          </ul>
+          <p>
+            Diese Verarbeitung erfolgt ausschließlich, um die Funktion
+            <em>„Bereiche der Webseite bereinigen/ausblenden“</em> zu
+            ermöglichen und die Darstellung im Browser gemäß Ihren Aktionen
+            anzupassen.
+          </p>
+
+          <h3>Keine externe Übertragung</h3>
+          <p>
+            In der aktuellen Version der Erweiterung werden
+            <strong>keine personenbezogenen Daten an den Entwickler oder an
+            Dritte übermittelt</strong>. Sämtliche Verarbeitung findet lokal in
+            Ihrem Browser statt.
+          </p>
+        </section>
+
+        <!-- 5. Berechtigungen -->
+        <section id="permissions">
+          <h2>5. Verwendete Berechtigungen der Erweiterung</h2>
+          <p>
+            Die Erweiterung nutzt folgende Chrome-Berechtigungen:
+          </p>
+          <ul>
+            <li>
+              <strong>"activeTab"</strong> - Zugriff auf den Inhalt der aktuell
+              aktiven Registerkarte, um dort Elemente erkennen, markieren oder
+              entfernen zu können.
+            </li>
+            <li>
+              <strong>"tabs"</strong> - Zugriff auf technische Tab-Informationen
+              (z.&nbsp;B. URL), soweit für die Funktionsweise erforderlich.
+            </li>
+            <li>
+              <strong>"scripting" / "content_scripts"</strong> - Ausführung von
+              Skripten auf besuchten Webseiten, um deren Struktur (DOM)
+              auszuwerten und zu verändern.
+            </li>
+          </ul>
+          <p>
+            Diese Berechtigungen werden ausschließlich genutzt, um die
+            beschriebenen Funktionen der Erweiterung bereitzustellen. Sie werden
+            nicht dafür verwendet, Nutzerprofile zu erstellen oder
+            Surfverhalten auszuwerten.
+          </p>
+        </section>
+
+        <!-- 6. Speicherung -->
+        <section id="storage">
+          <h2>6. Speicherung und Speicherdauer</h2>
+          <p>
+            Die Erweiterung ist darauf ausgelegt, so wenig wie möglich zu
+            speichern:
+          </p>
+          <ul>
+            <li>
+              Es findet <strong>keine serverseitige Speicherung</strong> durch
+              den Entwickler statt.
+            </li>
+            <li>
+              Es werden <strong>keine Tracking-Cookies</strong> gesetzt und
+              keine externen Analysetools eingebunden.
+            </li>
+            <li>
+              Sofern die Erweiterung Einstellungen lokal speichert
+              (z.&nbsp;B. Konfiguration oder Präferenzen), geschieht dies
+              ausschließlich in Ihrem Browser (z.&nbsp;B. über
+              <code>chrome.storage</code>) und dient rein funktionalen Zwecken.
+            </li>
+          </ul>
+          <p>
+            Lokale Einstellungen können Sie jederzeit entfernen, indem Sie den
+            Browser-Cache bzw. die gespeicherten Daten der Erweiterung löschen
+            oder die Erweiterung deinstallieren.
+          </p>
+        </section>
+
+        <section id="legal-basis">
+          <h2>7. Rechtsgrundlage der Verarbeitung</h2>
+          <p>
+            Soweit im Einzelfall personenbezogene Daten verarbeitet werden,
+            erfolgt dies auf Basis von Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f
+            DSGVO (berechtigtes Interesse). Das berechtigte Interesse liegt in
+            der Anpassung und Verbesserung der Darstellung von Webseiten nach
+            Ihren Vorgaben, um störende oder unerwünschte Inhalte auszublenden.
+          </p>
+        </section>
+
+        <section id="third-parties">
+          <h2>8. Keine Weitergabe an Dritte</h2>
+          <p>
+            Es findet keine Weitergabe von Daten an Dritte, kein Verkauf von
+            Daten und keine Nutzung für Werbe- oder Trackingzwecke statt.
+          </p>
+        </section>
+
+        <section id="rights">
+          <h2>9. Ihre Rechte</h2>
+          <p>
+            Soweit im Rahmen der Nutzung der Erweiterung personenbezogene Daten
+            verarbeitet werden, haben Sie nach der DSGVO insbesondere folgende
+            Rechte:
+          </p>
+          <ul>
+            <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+            <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+            <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+            <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+            <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+            <li>
+              Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)
+            </li>
+          </ul>
+          <p>
+            Da die Erweiterung selbst keine Daten an den Entwickler übermittelt,
+            können viele dieser Rechte praktisch bereits durch die
+            Deinstallation der Erweiterung und das Löschen lokaler Daten
+            ausgeübt werden.
+          </p>
+        </section>
+
+        <section id="changes">
+          <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+          <p>
+            Diese Datenschutzerklärung kann angepasst werden, wenn sich
+            Funktionsumfang oder technische Grundlagen der Erweiterung ändern.
+            Die jeweils aktuelle Version ist unter dieser Seite abrufbar.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>11. Kontakt</h2>
+          <p>
+            Bei Fragen zu dieser Datenschutzerklärung oder zum Umgang mit Daten
+            im Zusammenhang mit der Erweiterung <strong>„webCleaner“</strong>
+            wenden Sie sich bitte an:
+          </p>
+          <p>
+            <strong>Adem Yaren</strong><br />
+            E-Mail:
+            <a href="mailto:adem.yaren55@gmail.com">adem.yaren55@gmail.com</a>
+          </p>
+
+          <p class="legal-note">
+            Hinweis: Diese Vorlage ersetzt keine individuelle Rechtsberatung.
+            Für rechtssichere Formulierungen, insbesondere im
+            geschäftlichen/professionellen Umfeld, sollten Sie eine
+            Rechtsanwältin oder einen Rechtsanwalt konsultieren.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <span>Version: 1.0 - Stand: <time datetime="2025-12-04">04. Dezember 2025</time></span>
+        <span>&copy; WebCleaner - Browser Extension</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
